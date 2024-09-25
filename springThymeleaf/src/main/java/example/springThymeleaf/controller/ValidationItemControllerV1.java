@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Slf4j
 @Controller
-public class FormItemControllerV2 {
+public class ValidationItemControllerV1 {
     private final ItemRepository itemRepository;
 
     @Autowired
-    public FormItemControllerV2(ItemRepository itemRepository){
+    public ValidationItemControllerV1(ItemRepository itemRepository){
         this.itemRepository = itemRepository;
     }
 
