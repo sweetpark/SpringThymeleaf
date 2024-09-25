@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/validation/api/items")
 public class ValidationItemApiController {
 
-    @PostMapping("/add")
+    //HTTP API 검증 처리
+    @PostMapping("add")
     public Object addItem(@RequestBody @Validated ItemSaveForm form, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
