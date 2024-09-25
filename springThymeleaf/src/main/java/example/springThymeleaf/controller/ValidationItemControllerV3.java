@@ -2,6 +2,8 @@ package example.springThymeleaf.controller;
 
 
 import example.springThymeleaf.object.Item;
+import example.springThymeleaf.object.SaveCheck;
+import example.springThymeleaf.object.UpdateCheck;
 import example.springThymeleaf.repository.ItemRepository;
 import example.springThymeleaf.validator.ItemValidator;
 import jakarta.annotation.PostConstruct;
@@ -41,7 +43,7 @@ public class ValidationItemControllerV3 {
 
     // validator 호출x , annotaion 사용
     @PostMapping("/add")
-    public String addItem(@Validated @ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes){
+    public String addItem(@Validated(SaveCheck.class) @ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes){
 
         //Object error (@scriptAssert 대신해서 java로 표현하는게 더 직관적임)
         if(item.getPrice() != null && item.getQuantity() != null){
@@ -73,7 +75,7 @@ public class ValidationItemControllerV3 {
     }
 
     @PostMapping("{itemId}/edit")
-    public String edit(@PathVariable("itemId") Long id,@Validated @ModelAttribute("item")Item item, BindingResult bindingResult){
+    public String edit(@PathVariable("itemId") Long id, @Validated(UpdateCheck.class) @ModelAttribute("item")Item item, BindingResult bindingResult){
 
         //Object error (@scriptAssert 대신해서 java로 표현하는게 더 직관적임)
         if(item.getPrice() != null && item.getQuantity() != null){
