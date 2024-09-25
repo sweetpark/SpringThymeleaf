@@ -11,7 +11,7 @@ import java.util.List;
 public class Item {
     private Long id;
     private String itemName;
-    private int price;
+    private Integer price;
     private Integer quantity;
 
     private Boolean open; // 판매 여부
